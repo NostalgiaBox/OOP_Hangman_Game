@@ -8,7 +8,7 @@
         this.missed = 0;
         this.active = false;
         this.phrases = [new Phrase('life is like a box of chocolates'), new Phrase('win some lose some'),
-        new Phrase('baby shark'), new Phrase('show me the money')];
+        new Phrase('baby shark'), new Phrase('show me the money'), new Phrase('A Dingo Ate My Baby')];
      }
 
      startGame(){
