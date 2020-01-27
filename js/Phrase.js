@@ -4,7 +4,8 @@
 
  class Phrase {
      constructor(phrase){
-         this.phrase = phrase.toLowerCase();
+         this.phrase = phrase.replace(/[^A-Za-z ]+/g, "");
+         this.phrase = this.phrase.toLowerCase();
      }
 
      addPhraseToDisplay() {

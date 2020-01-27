@@ -28,20 +28,27 @@
         this.activePhrase = this.phrases[randomNumber];
      }
 
-     handleInteraction(letter){
-        if(this.activePhrase.checkLetter(letter)){
+     handleInteraction(button){
+        if(this.activePhrase.checkLetter(button.innerText)){
+           
+            button.disabled = true;
+            button.className = "key chosen";
             this.checkForWin();
         } else {
+            button.disabled = true;
+            button.className = "key chosen wrong";
             this.removeLife();
         }
      }
 
      removeLife(){
-        const hearts = document.querySelectorAll('img[src="images/liveHeart.png"]');
-        if (hearts.length === 1){
+        const hearts = document.querySelectorAll('img');
+        //console.log(this.missed);
+        if (this.missed === 4){
             this.gameOver(true);
         }else {
-            hearts[0].src = "images/lostHeart.png";
+            hearts[this.missed].src = "images/lostHeart.png";
+            this.missed += 1;
         }
      }
 
@@ -70,6 +77,7 @@
         for (let i = 0; i < lostHearts.length; i += 1){
             lostHearts[i].src = "images/liveHeart.png"
         }
+        this.missed = 0;
         this.active = false;
 
      }
